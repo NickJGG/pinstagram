@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block links %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/main.css' %}">
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/post.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+	<div id = "post-area">
+		<div id = "image">
+			<img src = "{{post.image.url}}">
+		</div>
+		<div id = "post-info">
+			<div id = "user-info">
+				<div>
+					<img src = "{{profile.picture.url}}">
+					<p>{{ post.user.username }}</p>
+						 •
+					<button id = "follow-btn" type = "submit">{% if is_following %}Unfollow{% else %}Follow{% endif %}</button>
+				</div>
+			</div>
+			<div class = "comments">
+				{% for comment in post.comments %}
+					{% include 'main/parts/comment.html' with comment=comment %}
+				{% endfor %}
+			</div>
+			<div id = "options">
+				{% include 'main/parts/comment_options.html' with post=post %}
+				<a href = "/p/{{ post.id }}"><p id = "posted">{{post.posted}}</p></a>
+				<form class = "{{post.id}} comment-form" action = "" enctype = "multipart/form-data" method = "comment">
+					{% csrf_token %}
+					<input type = "text" placeholder = "Add a comment..."></input>
+				</form>
+			</div>
+		</div>
+		<div id = "img-zoom"></div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script>
+		function createComment(){
+			var comment = $("{% include 'main/parts/comment.html' with dynamic=True %}");
+			
+			return comment;
+		}
+	</script>
+	<script src = "{% static 'js/main.js' %}"></script>
+	<script src = "{% static 'js/post.js' %}"></script>
+
+{% endblock %}

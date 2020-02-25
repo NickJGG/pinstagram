@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block links %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/profile.css' %}">
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/pins.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+	<div id = "profile-head">
+		<div id = "profile-picture">
+			<img src = "{{ profile_info.picture.url }}">
+		</div>
+		<div id = "profile-info">
+			<div id = "username-follow">
+				<p>{{ profile.username }}</p>
+				<form action = "" method = "post">
+					{% csrf_token %}
+					<button type = "submit" id = "follow-btn">{% if is_following %}Unfollow{% else %}Follow{% endif %}</button>
+					<div class = "follow-res"></div>
+				</form>
+			</div>
+			<div id = "user-meta">
+				<p>{{ posts.count }}</p> posts <p>{{ followers|length }}</p> followers <p>{{ following.count }}</p> following
+			</div>
+			<div id = "user-name-desc">
+				<p>{{ profile.first_name }} {{ profile.last_name }}</p> {{ profile_info.description }}
+			</div>
+		</div>
+	</div>
+	<div id = "switch-view">
+		<!--<div><img src = "{% static 'img/photos.png' %}"></div>
+		<div><img src = "{% static 'img/pin.png' %}"></div>-->
+		<div onclick = "location.href = './'">Posts</div>
+		<div class = "selected">Boards</div>
+	</div>
+	<div id = "profile-posts">
+		{% for b in boards %}
+			<div class = "profile-pin">
+				<div class = "pin-images">
+						{% for p in b.pins_prev %}
+							<div class = "board-image" style = "background-image: url('{{ p.image.url }}')"></div>
+						{% endfor %}
+				</div>
+				<div class = "board-info">
+					<p class = "board-name"><a href = "b/{{ b.name }}" target = "_blank">{{ b.name }}</a></p>
+					<p><a href = "b/{{ b.name }}" target = "_blank">{{ b.pins.count }} pins</a></p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src = "{% static 'js/profile.js' %}"></script>
+
+{% endblock %}

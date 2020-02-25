@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block auth %}
+{% endblock %}
+
+{% if user.is_authenticated %}
+	<script>location.href = '/';</script>
+{% endif %}
+
+{% block links %}
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}	
+	<div id = "login-box">
+		<form id = "register" method = "post">
+			{% csrf_token %}
+			<input type = "username" placeholder = "USERNAME" name = "username">
+			<input type = "password" placeholder = "PASSWORD" name = "password">
+			<button class = "submit" style = "background: var(--red)" name = "submit" type = "submit" value = "submit">LOGIN</button>
+		</form>
+		<p><a href = "../register">havent registered yet?</a></p>
+	</div>
+
+{% endblock %}

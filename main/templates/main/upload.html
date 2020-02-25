@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block links %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/profile.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+	<form id = "submit-form" enctype = "multipart/form-data" action = "#" method = "POST">
+		{% csrf_token %}
+		<input id = "submit-post" type = "file" name = "image" accept = "image/*">
+		<label for = "submit-post">
+			<img src = "{% static 'img/post.png' %}">
+		</label>
+	</form>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src = "{% static 'js/upload.js' %}"></script>
+
+{% endblock %}

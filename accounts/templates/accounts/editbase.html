@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block links %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/main.css' %}">
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/editprofile.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+	<div id = "edit-area">
+		<div id = "edit-options">
+			<div class = "edit-opt selected">Edit Profile</div>
+			<div class = "edit-opt">Change Password</div>
+			<div class = "edit-opt">Authorized Applications</div>
+			<div class = "edit-opt">Comments</div>
+			<div class = "edit-opt">Email and SMS</div>
+			<div class = "edit-opt">Manage Contacts</div>
+		</div>
+		<div id = "option-area">
+			{% block options %}
+			{% endblock %}
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

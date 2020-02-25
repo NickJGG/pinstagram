@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<div class = "options">
+	<div class = "left">
+		<form class = "{{post.id}}" action = "" enctype = "multipart/form-data" method = "like">
+			{% csrf_token %}
+			<button type = "submit">
+				{% if post.liked %}
+					<img src = "{% static 'img/like-red.png' %}" alt = "Unlike">
+				{% else %}
+					<img src = "{% static 'img/like.png' %}" alt = "Like">
+				{% endif %}
+			</button>
+		</form>
+		<p>{{ post.likes|length }}</p>
+		<img src = "{% static 'img/comment.png' %}" alt = "Comment">
+	</div>
+	<div class = "{{ post.id }} right">
+		{% if post.pinned %}
+			<img src = "{% static 'img/pin-filled.png' %}" alt = "Pin">
+		{% else %}
+			<img src = "{% static 'img/pin.png' %}" alt = "Pin">
+		{% endif %}
+	</div>
+</div>

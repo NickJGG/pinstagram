@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block links %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/profile.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+	<div id = "profile-head">
+		<div id = "profile-picture">
+			<div style = "background-image: url('{{ profile_info.prof_post.image.url }}')">
+				
+			</div>
+		</div>
+		<div id = "profile-info">
+			<div id = "username-follow">
+				<p>{{ profile.username }}</p>
+				<form action = "" method = "post">
+					{% csrf_token %}
+					<button type = "submit" id = "follow-btn">{% if is_following %}Unfollow{% else %}Follow{% endif %}</button>
+					<div class = "follow-res"></div>
+				</form>
+			</div>
+			<div id = "user-meta">
+				<p>{{ posts.count }}</p> posts <p>{{ followers|length }}</p> followers <p>{{ following.count }}</p> following
+			</div>
+			<div id = "user-name-desc">
+				<p>{{ profile.first_name }} {{ profile.last_name }}</p> {{ profile_info.description }}
+			</div>
+		</div>
+	</div>
+	<div id = "switch-view">
+		<!--<div><img src = "{% static 'img/photos.png' %}"></div>
+		<div><img src = "{% static 'img/pin.png' %}"></div>-->
+		<div class = "selected">Posts</div>
+		<div onclick = "location.href = 'b'">Boards</div>
+	</div>
+	<div id = "profile-posts">
+		{% for post in posts %}
+			<a class = "profile-post" href = "../p/{{ post.id }}" target = "_blank">
+				<div class = "post-image" style = "background-image: url('{{ post.image.url }}')"></div>
+				<div class = "post-info">
+					<div>
+						<img src = "{% static 'img/like-filled.png' %}">
+						<p>{{post.likes.count}}</p>
+					</div>
+					<div>
+						<img src = "{% static 'img/comment-filled.png' %}">
+						<p>{{post.comments.count}}</p>
+					</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src = "{% static 'js/profile.js' %}"></script>
+
+{% endblock %}

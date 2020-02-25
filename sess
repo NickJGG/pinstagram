@@ -1,0 +1,13 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="2">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1664" startPos="932" endPos="932" selMode="0" lang="HTML" encoding="-1" filename="E:\Projects\Website\pinstagram\main\templates\main\index.html" backupFilePath="" originalFileLastModifTimestamp="1513214482" />
+            <File firstVisibleLine="60" xOffset="0" scrollWidth="416" startPos="1302" endPos="1302" selMode="0" lang="CSS" encoding="-1" filename="E:\Projects\Website\pinstagram\main\static\css\main.css" backupFilePath="" originalFileLastModifTimestamp="1513214341" />
+            <File firstVisibleLine="7" xOffset="0" scrollWidth="1390" startPos="772" endPos="772" selMode="0" lang="HTML" encoding="-1" filename="E:\Projects\Website\pinstagram\accounts\templates\accounts\profile.html" backupFilePath="" originalFileLastModifTimestamp="1513227897" />
+            <File firstVisibleLine="34" xOffset="0" scrollWidth="304" startPos="906" endPos="906" selMode="0" lang="CSS" encoding="-1" filename="E:\Projects\Website\pinstagram\accounts\static\css\profile.css" backupFilePath="" originalFileLastModifTimestamp="1513224091" />
+            <File firstVisibleLine="26" xOffset="0" scrollWidth="928" startPos="1612" endPos="1612" selMode="0" lang="JavaScript" encoding="-1" filename="E:\Projects\Website\pinstagram\accounts\static\js\profile.js" backupFilePath="" originalFileLastModifTimestamp="1513224065" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1064" startPos="377" endPos="377" selMode="0" lang="HTML" encoding="-1" filename="E:\Projects\Website\pinstagram\accounts\templates\accounts\login.html" backupFilePath="" originalFileLastModifTimestamp="1513051982" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

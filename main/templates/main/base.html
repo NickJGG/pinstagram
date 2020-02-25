@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>Pinstagram</title>
+	
+	{% block auth %}
+		{% include 'main/parts/auth.html' %}
+	{% endblock %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/base.css' %}">
+	{% block links %}
+	{% endblock %}
+</head>
+<body>
+	<div id = "header">
+		<div id = "header-safe">
+			<div id = "header-logo">
+				<a href = "/"><img src = "{% static 'img/alt-logo-30.png' %}"></a>
+				<!--<a href = "/"><img src = "{% static 'img/name.png' %}"></a>-->
+			</div>
+			<div id = "header-search">
+				<input type = "search" id = "search" placeholder = "Search">
+			</div>
+			<div id = "header-links">
+				<div id = "header-post" onclick = "location.href = '/upload'">
+					<img src = "{% static 'img/post.png' %}">
+				
+					<!--<form action = "" method = "post">
+						<input id = "submit-post" type = "file" accept = "image/*">
+						<label for = "submit-post">
+							<img for = "submit-post" src = "{% static 'img/post.png' %}">
+						</label>
+					</form>-->
+				</div>
+				<div id = "header-profile">
+					<a href = "/{{user.username}}"><img src = "{% static 'img/profile.png' %}"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id = "main-area">
+		{% block content %}
+		{% endblock %}
+	</div>
+	
+	<script src = "{% static 'js/jquery.js' %}"></script>
+	{% block scripts %}
+	{% endblock %}
+</body>
+</html>

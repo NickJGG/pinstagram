@@ -1,0 +1,14 @@
+#date{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+#month{
+	width: 100%;
+}
+#day{
+	width: 50%;
+}
+#year{
+	width: 70%;
+}

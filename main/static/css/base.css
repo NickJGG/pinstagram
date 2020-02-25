@@ -1,0 +1,83 @@
+@font-face{
+	font-family: 'proxima';
+	src: url("../font/proxima.ttf");
+}
+*{
+	font-family: 'proxima';
+}
+body{
+	margin: 0;
+	padding: 0;
+	background: #fafafa;
+	
+	--safe: 50%;
+}
+p{
+	margin: 0;
+}
+#header{
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	background: white;
+	border-bottom: 1px solid rgba(219, 219, 219, 1);
+	-box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
+	-margin-bottom: 50px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+#header-safe{
+	width: var(--safe);
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+#header-safe div{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#header-logo a:not(:first-child){
+	margin-left: 10px;
+}
+
+#search{
+	outline: none;
+	border: 1px solid rgba(219, 219, 219, 1);
+	background: #fafafa;
+	color: #999;
+	padding: 5px;
+	box-sizing: border-box;
+	font-family: 'proxima';
+	width: 200px;
+}
+
+#header-links div{
+	position: relative;
+	cursor: pointer;
+}
+#header-links div:not(:first-child){
+	margin-left: 20px;
+}
+form{
+	margin: 0;
+}
+#submit-form input{
+	position: absolute;
+	visibility: hidden;
+}
+label{
+	cursor: pointer;
+}
+
+#main-area{
+	margin: auto;
+	width: var(--safe);
+	margin: auto;
+	display: flex;
+	margin-top: 100px;
+}

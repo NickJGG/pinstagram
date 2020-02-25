@@ -1,0 +1,1 @@
+{% load staticfiles %}<div class = 'comment'><div><div class = 'username'><a href = '{{comment.user.username}}'>{{comment.user.username}}</a></div><div class = 'text'>{{comment.text}}</div></div>{% if comment.user == user or dynamic %}<div class = '{{comment.id}} comment-delete'><img src = '{% static 'img/delete.png' %}'></div>{% endif %}</div>

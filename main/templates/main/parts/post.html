@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<div class = "post">
+	<div class = "head">
+		<div>
+			<a href = "{{ post.user.username }}"><div class = "user-pic" style = "background-image: url('{{ post.profile.prof_post.image.url }}');"></div></a>
+			<a href = "{{ post.user.username }}"><p class = "username">{{ post.user.username }}</p></a>
+		</div>
+	</div>
+	<div class = "image">
+		<img src = "{{post.image.url}}"></img>
+	</div>
+	{% include 'main/parts/comment_options.html' with post=post %}
+	<div class = "comments">
+		{% for comment in post.comments %}
+			{% include 'main/parts/comment.html' with comment=comment %}
+		{% endfor %}
+	</div>
+	<a href = "/p/{{ post.id }}"><p id = "posted">{{post.posted}}</p></a>
+	<div class = "comment-options">
+		<form class = "{{post.id}} comment-form" action = "" enctype = "multipart/form-data" method = "comment">
+			{% csrf_token %}
+			<input type = "text" placeholder = "Add a comment..."></input>
+		</form>
+	</div>
+</div>

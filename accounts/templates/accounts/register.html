@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+{% block auth %}
+{% endblock %}
+
+{% if user.is_authenticated %}
+	<script>location.href = '/';</script>
+{% endif %}
+
+<html>
+<head>
+	<title>Register</title>
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/accounts.css' %}">
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/register.css' %}">
+</head>
+
+<body>
+	<div id = "main-area">
+		<div id = "main-box">
+			<form method = "get">
+				{% csrf_token %}
+				<input type = "username" placeholder = "USERNAME" name = "username">
+				<div id = "name">
+					<input type = "name" placeholder = "FIRST NAME" name = "firstname">
+					<input type = "name" placeholder = "LAST NAME" name = "lastname">
+				</div>
+				<input type = "email" placeholder = "EMAIL" name = "email">
+				<input type = "password" placeholder = "PASSWORD" name = "password">
+				<input type = "password" placeholder = "CONFIRM PASSWORD" name = "password-confirm">
+				<div id = "date">
+					<select id = "month" selected = "MONTH" name = "month">
+						<option disabled selected hidden>MONTH</option>
+						<option value = "JANUARY">JANUARY</option>
+						<option value = "FEBRUARY">FEBRUARY</option>
+						<option value = "MARCH">MARCH</option>
+						<option value = "APRIL">APRIL</option>
+						<option value = "MAY">MAY</option>
+						<option value = "JUNE">JUNE</option>
+						<option value = "JULY">JULY</option>
+						<option value = "AUGUST">AUGUST</option>
+						<option value = "SEPTEMBER">SEPTEMBER</option>
+						<option value = "OCTOBER">OCTOBER</option>
+						<option value = "NOVEMBER">NOVEMBER</option>
+						<option value = "DECEMBER">DECEMBER</option>
+					</select>
+					<select id = "day" selected = "DAY" name = "day">
+						<option disabled selected hidden>DAY</option>
+					</select>
+					<select id = "year" selected = "YEAR" name = "year">
+						<option disabled selected hidden>YEAR</option>
+					</select>
+				</div>
+				<button class = "submit" name = "submit" type = "submit" value = "submit">REGISTER</button>
+			</form>
+			<p><a href = "../register">havent registered yet?</a></p>
+		</div>
+	</div>
+	
+	<script src = "{% static 'js/jquery.js' %}"></script>
+	<script src = "{% static 'js/register.js' %}"></script>
+</body>
+</html>

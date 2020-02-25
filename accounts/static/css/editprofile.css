@@ -1,0 +1,46 @@
+#edit-area{
+	width: 100%;
+	height: 1000px;
+	background: white;
+	border: 1px solid rgba(219, 219, 219, 1);
+	color: black;
+	display: flex;
+}
+#edit-area > div{
+	display: flex;
+	flex-direction: column;
+}
+#edit-options{
+	width: 25%;
+	border-right: 1px solid rgba(219, 219, 219, 1);
+}
+#option-area{
+	width: 75%;
+	display: flex;
+}
+
+.edit-opt{
+	width: 100%;
+	color: white;
+	font-size: 16px;
+	color: inherit;
+	padding: 16px 30px;
+	box-sizing: border-box;
+}
+.selected{
+	border-left: 2px solid black;
+	font-weight: bold;
+}
+
+.left{
+	width: 25%;
+	display: flex;
+	justify-content: flex-end;
+}
+.right{
+	width: 75%;
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 32px;
+	box-sizing: border-box;
+}

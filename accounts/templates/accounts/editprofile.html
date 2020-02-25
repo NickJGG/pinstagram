@@ -1,0 +1,79 @@
+{% extends 'accounts/editbase.html' %}
+{% load staticfiles %}
+
+{% block links %}
+	{{ block.super }}
+	
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/edit/profile.css' %}">
+	
+{% endblock %}
+
+{% block options %}
+
+	<div id = "acc-info">
+		<div class = "left">
+			<img src = "{{ profile.prof_post.image.url }}">
+		</div>
+		<div class = "right">
+			<p>{{ user.username }}</p>
+			<div id = "upload-btn">
+				<p>Change Profile Picture</p>
+				
+				<div id = "post-select">
+					<div id = "post-list">
+						{% for post in posts %}
+							<div class = "{{ post.id }} post-img" style = "background-image: url('{{ post.image.url }}')">
+								
+							</div>
+						{% endfor %}
+					</div>
+					<div id = "prof-pic-submit">
+						Change
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id = "prof-options">
+		<div class = "prof-opt">
+			<div class = "left">
+				Name
+			</div>
+			<div class = "right">
+				<input type = "text" value = "{{ user.first_name }} {{ user.last_name }}">
+			</div>
+		</div>
+		<div class = "prof-opt">
+			<div class = "left">
+				Username
+			</div>
+			<div class = "right">
+				<input type = "text" value = "{{ user.username }}">
+			</div>
+		</div>
+		<div class = "prof-opt">
+			<div class = "left">
+				Bio
+			</div>
+			<div class = "right">
+				<textarea type = "text">{{ profile.description }}</textarea>
+			</div>
+		</div>
+		<div class = "prof-opt">
+			<div class = "left">
+				Email
+			</div>
+			<div class = "right">
+				<input type = "text" value = "{{ user.email }}">
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src = "{% static 'js/editprofile.js' %}"></script>
+	<script src = "{% static 'js/ajax.js' %}"></script>
+
+{% endblock %}

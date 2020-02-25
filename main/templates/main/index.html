@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load staticfiles %}
+
+{% block links %}
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/main.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+	<div id = "posts">
+		{% for post in posts %}
+				{% include 'main/parts/post.html' with post=post %}
+		{% endfor %}
+		
+		<div id = "img-zoom"></div>
+	</div>
+	<div id = "sidebar">
+		<div id = "feed-options">
+			<a href = "pins"><div class = "feed-opt">
+				<img src = "{% static 'img/pin.png' %}">
+				<div class = "desc">Pins</div>
+			</div></a>
+			<div class = "feed-opt">
+				<img src = "{% static 'img/settings.png' %}">
+				<div class = "desc">Sort Feed</div>
+			</div>
+		</div>
+		<p>© 2017 INSTAGRAM</p>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+	<script src = "{% static 'js/main.js' %}"></script>
+	<script type = "text/javascript">
+		window.createComment = function(){
+			var comment = $("{% include 'main/parts/comment.html' with dynamic=True %}");
+			
+			return comment;
+		}
+	</script>
+
+{% endblock %}
